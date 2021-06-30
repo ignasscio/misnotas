@@ -27,12 +27,15 @@ class AgregarNotaActivity : AppCompatActivity() {
     }
 
     fun guardarNota(){
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 235)
+        if(ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 235)
         }else{
             guardar()
         }
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        if(ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "Error, permisos denegados", Toast.LENGTH_LONG).show()
         }
     }
@@ -45,17 +48,20 @@ class AgregarNotaActivity : AppCompatActivity() {
         var contenido = editText_contenido.text.toString()
 
         if(titulo == "" || contenido == ""){
-            Toast.makeText(this, "Error: alguno de los campos está vacío", Toast.LENGTH_LONG)
+            Toast.makeText(this, "Error: alguno de los campos está vacío",
+                Toast.LENGTH_LONG)
         }else{
             try{
                 val archivo = File(ubicacion(), titulo+".txt")
                 val fos = FileOutputStream(archivo)
                 fos.write(contenido.toByteArray())
                 fos.close()
-                Toast.makeText(this, "se guardó el archivo en la carpeta pública", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "se guardó el archivo en la carpeta pública",
+                    Toast.LENGTH_LONG).show()
 
             }catch(e:Exception){
-                Toast.makeText(this, "Error: no se guardó el archivo", Toast.LENGTH_LONG)
+                Toast.makeText(this, "Error: no se guardó el archivo",
+                    Toast.LENGTH_LONG)
             }
         }
         finish()

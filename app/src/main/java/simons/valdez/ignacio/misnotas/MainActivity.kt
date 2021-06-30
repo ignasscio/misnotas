@@ -16,6 +16,20 @@ class MainActivity : AppCompatActivity() {
     var notas:ArrayList<Nota> = ArrayList<Nota>()
     lateinit var adaptador:NotaAdaptador
 
+    fun cargarNotas(){
+        leerNotas()
+
+        adaptador = NotaAdaptador(this, notas)
+
+        var listView = findViewById(R.id.listView_notas) as ListView
+        listView.adapter = adaptador
+    }
+
+    override fun onResume() {
+        super.onResume()
+        cargarNotas()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,12 +41,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        leerNotas()
-
-        adaptador = NotaAdaptador(this, notas)
-
-        var listView = findViewById(R.id.listView_notas) as ListView
-        listView.adapter = adaptador
+        cargarNotas()
 
     }
 
@@ -132,9 +141,11 @@ class MainActivity : AppCompatActivity() {
                 try{
                     var archivo = File(ubicacion(), titulo+".txt")
                     archivo.delete()
-                    Toast.makeText(contexto, "se eliminó el archivo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(contexto, "se eliminó el archivo", Toast.LENGTH_SHORT)
+                        .show()
                 }catch(e:Exception){
-                    Toast.makeText(contexto, "Error al eliminar el archivo", Toast.LENGTH_LONG).show()
+                    Toast.makeText(contexto, "Error al eliminar el archivo", Toast.LENGTH_LONG)
+                        .show()
                 }
             }
         }
