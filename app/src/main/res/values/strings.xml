@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Mis Notas</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget nunc lobortis mattis aliquam faucibus purus. Est ullamcorper eget nulla facilisi.</string>
+    <string name="NOTA">NOTA</string>
+    <string name="NOTA_hint">Añade un título...</string>
+    <string name="contenido_hint">Escribe algo...</string>
+    <string name="button_guardar">Guardar</string>
+</resources>

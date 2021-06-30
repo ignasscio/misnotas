@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgregarNotaActivity"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryLight">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primaryText"
+        android:text="@string/NOTA"
+        android:textSize="24sp"
+        android:textAlignment="center"/>
+
+    <EditText android:id="@+id/editText_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primaryText"
+        android:hint="@string/NOTA_hint"/>
+
+    <EditText android:id="@+id/editText_contenido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contenido_hint"
+        android:textColor="@color/secondaryText"
+        android:inputType="textMultiLine"
+        android:layout_weight="1"
+        android:gravity="top"
+        />
+
+    <Button android:id="@+id/button_guardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_guardar"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="@color/primaryText"/>
+
+
+</LinearLayout>
